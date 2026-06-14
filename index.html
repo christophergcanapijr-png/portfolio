@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Christopher G. Canapi Jr. — IT Graduate and Web Developer based in Tuguegarao City, Philippines.">
+<title>Christopher G. Canapi Jr. — Web Developer</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav__inner container">
+    <a href="#hero" class="nav__logo">CC<span>.</span></a>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav__links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="hero">
+  <div class="hero__bg" aria-hidden="true">
+    <div class="blob blob--1"></div>
+    <div class="blob blob--2"></div>
+    <div class="grid"></div>
+    <canvas id="particles" class="particles"></canvas>
+  </div>
+  <div class="container hero__inner">
+    <div class="hero__text">
+      <p class="hero__greeting reveal">Hello, I'm</p>
+      <h1 class="hero__name reveal">Christopher G. <span class="accent">Canapi Jr.</span></h1>
+      <h2 class="hero__title reveal">
+        <span class="typed" id="typed" data-text="IT Graduate / Web Developer"></span><span class="caret" aria-hidden="true"></span>
+      </h2>
+      <p class="hero__intro reveal">
+        I build clean, responsive websites and practical web applications.
+        Based in Tuguegarao City, Philippines — turning ideas into working code.
+      </p>
+      <div class="hero__cta reveal">
+        <a href="#projects" class="btn btn--primary">View My Work</a>
+        <a href="#contact" class="btn btn--ghost">Get in Touch</a>
+      </div>
+      <div class="hero__meta reveal">
+        <span>Tuguegarao City, Philippines</span>
+        <span class="dot"></span>
+        <span>Available for opportunities</span>
+      </div>
+      <div class="hero__socials reveal">
+        <a href="https://github.com/christophergcanapijr-png" target="_blank" rel="noopener" class="social" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2 1-.3 2-.4 3-.4s2 .1 3 .4c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg>
+        </a>
+        <a href="mailto:christophergcanapijr@gmail.com" class="social" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero__photo reveal">
+      <div class="hero__photo-ring" aria-hidden="true"></div>
+      <div class="hero__photo-inner">
+        <img src="myface.jpg" alt="Christopher G. Canapi Jr." loading="eager">
+      </div>
+    </div>
+  </div>
+  <a href="#about" class="hero__scroll" aria-label="Scroll to About">
+    <span></span>
+  </a>
+</section>
+
+<section class="section about" id="about">
+  <div class="container">
+    <div class="section__head reveal">
+      <span class="section__num">01</span>
+      <h2 class="section__title">About Me</h2>
+      <div class="section__line"></div>
+    </div>
+    <div class="about__grid">
+      <div class="about__text reveal">
+        <p>
+          I'm a recent Information Technology graduate with a passion for web development
+          and building solutions that solve real problems. My journey blends academic
+          training, hands-on internship experience, and freelance project work.
+        </p>
+        <p>
+          During my On-the-Job Training I completed <strong>486 hours</strong> developing
+          a website for a government cultural institution using WordPress. Across my
+          studies and freelance work I've shipped <strong>3 production projects</strong> —
+          from a capstone online voting system to a sales and inventory tracker for a
+          local business.
+        </p>
+        <p>
+          I care about clean code, responsive design, and writing software that's
+          straightforward to maintain. I'm currently open to web developer roles and
+          freelance opportunities.
+        </p>
+      </div>
+      <div class="about__stats">
+        <div class="stat reveal">
+          <div class="stat__num" data-target="3" data-suffix="+">0</div>
+          <div class="stat__label">Projects Completed</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat__num" data-target="486">0</div>
+          <div class="stat__label">OJT Hours</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat__num" data-target="3">0</div>
+          <div class="stat__label">Programming Languages</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat__num" data-target="1">0</div>
+          <div class="stat__label">Government Project</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section skills" id="skills">
+  <div class="container">
+    <div class="section__head reveal">
+      <span class="section__num">02</span>
+      <h2 class="section__title">Skills</h2>
+      <div class="section__line"></div>
+    </div>
+    <div class="skills__grid">
+      <div class="skill reveal" data-level="80">
+        <div class="skill__head"><span class="skill__name">PHP</span><span class="skill__pct">80%</span></div>
+        <div class="skill__bar"><div class="skill__fill" style="--w:80%"></div></div>
+      </div>
+      <div class="skill reveal" data-level="85">
+        <div class="skill__head"><span class="skill__name">HTML5</span><span class="skill__pct">85%</span></div>
+        <div class="skill__bar"><div class="skill__fill" style="--w:85%"></div></div>
+      </div>
+      <div class="skill reveal" data-level="80">
+        <div class="skill__head"><span class="skill__name">CSS3</span><span class="skill__pct">80%</span></div>
+        <div class="skill__bar"><div class="skill__fill" style="--w:80%"></div></div>
+      </div>
+      <div class="skill reveal" data-level="75">
+        <div class="skill__head"><span class="skill__name">JavaScript</span><span class="skill__pct">75%</span></div>
+        <div class="skill__bar"><div class="skill__fill" style="--w:75%"></div></div>
+      </div>
+      <div class="skill reveal" data-level="70">
+        <div class="skill__head"><span class="skill__name">MySQL</span><span class="skill__pct">70%</span></div>
+        <div class="skill__bar"><div class="skill__fill" style="--w:70%"></div></div>
+      </div>
+      <div class="skill reveal" data-level="85">
+        <div class="skill__head"><span class="skill__name">WordPress</span><span class="skill__pct">85%</span></div>
+        <div class="skill__bar"><div class="skill__fill" style="--w:85%"></div></div>
+      </div>
+      <div class="skill reveal" data-level="65">
+        <div class="skill__head"><span class="skill__name">Git</span><span class="skill__pct">65%</span></div>
+        <div class="skill__bar"><div class="skill__fill" style="--w:65%"></div></div>
+      </div>
+      <div class="skill reveal" data-level="60">
+        <div class="skill__head"><span class="skill__name">Python</span><span class="skill__pct">60%</span></div>
+        <div class="skill__bar"><div class="skill__fill" style="--w:60%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section projects" id="projects">
+  <div class="container">
+    <div class="section__head reveal">
+      <span class="section__num">03</span>
+      <h2 class="section__title">Projects</h2>
+      <div class="section__line"></div>
+    </div>
+    <div class="projects__grid">
+
+      <article class="project reveal">
+        <div class="project__cover project__cover--gallery" data-gallery>
+          <img class="gallery__img is-active" src="assets/admin-dashboard-cit.png" alt="Admin dashboard">
+          <img class="gallery__img" src="assets/add%20students.png" alt="Add students screen">
+          <img class="gallery__img" src="assets/historylog.png" alt="History log screen">
+          <div class="gallery__dots" role="tablist" aria-label="CIT voting system screens">
+            <button class="gallery__dot is-active" type="button" aria-label="Show admin dashboard"></button>
+            <button class="gallery__dot" type="button" aria-label="Show add students"></button>
+            <button class="gallery__dot" type="button" aria-label="Show history log"></button>
+          </div>
+          <span class="project__badge project__badge--capstone">Capstone</span>
+        </div>
+        <div class="project__body">
+          <h3>CIT Online Voting System</h3>
+          <p>
+            Capstone project where I served as <strong>Lead Programmer</strong>.
+            A secure online voting platform for student elections with role-based
+            access, candidate management, real-time tallying, and a results
+            dashboard.
+          </p>
+          <ul class="project__tags">
+            <li>PHP</li>
+            <li>MySQL</li>
+            <li>JavaScript</li>
+            <li>Capstone</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="project__cover project__cover--gallery" data-gallery>
+          <img class="gallery__img is-active" src="assets/dashboard-sales-tracker.png" alt="Sales tracker dashboard">
+          <img class="gallery__img" src="assets/product-sales-tracker.png" alt="Product management screen">
+          <img class="gallery__img" src="assets/setting-sales-tracker.png" alt="Settings screen">
+          <div class="gallery__dots" role="tablist" aria-label="Sales tracker screens">
+            <button class="gallery__dot is-active" type="button" aria-label="Show dashboard"></button>
+            <button class="gallery__dot" type="button" aria-label="Show products"></button>
+            <button class="gallery__dot" type="button" aria-label="Show settings"></button>
+          </div>
+          <span class="project__badge project__badge--freelance">Freelance</span>
+        </div>
+        <div class="project__body">
+          <h3>Sales & Inventory Tracker</h3>
+          <p>
+            Freelance project for a local business. A web app to track daily
+            sales, manage stock levels, and generate inventory reports — replacing
+            a paper-based process with something the owner could check from a
+            phone or laptop.
+          </p>
+          <ul class="project__tags">
+            <li>PHP</li>
+            <li>JavaScript</li>
+            <li>MySQL</li>
+            <li>Freelance</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="project__cover project__cover--gallery" data-gallery>
+          <img class="gallery__img is-active" src="assets/address-wordpress%20(1).jpg" alt="Cagayan Museum — contact section">
+          <img class="gallery__img" src="assets/foot%20wordpress.jpg" alt="Cagayan Museum — footer section">
+          <div class="gallery__dots" role="tablist" aria-label="Cagayan Museum screens">
+            <button class="gallery__dot is-active" type="button" aria-label="Show contact section"></button>
+            <button class="gallery__dot" type="button" aria-label="Show footer section"></button>
+          </div>
+          <span class="project__badge project__badge--ojt">OJT</span>
+        </div>
+        <div class="project__body">
+          <h3>Cagayan Museum Website</h3>
+          <p>
+            Developed during my On-the-Job Training for a government cultural
+            institution. Built on WordPress with custom theming, exhibit pages,
+            and a content workflow the staff can manage on their own.
+          </p>
+          <ul class="project__tags">
+            <li>WordPress</li>
+            <li>PHP</li>
+            <li>Government</li>
+            <li>OJT</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="section__head reveal">
+      <span class="section__num">04</span>
+      <h2 class="section__title">Get In Touch</h2>
+      <div class="section__line"></div>
+    </div>
+    <div class="contact__inner reveal">
+      <p class="contact__lead">
+        Have a project in mind, an opportunity to share, or just want to say hello?
+        My inbox is open.
+      </p>
+      <div class="contact__links">
+        <a class="contact__card" href="mailto:christophergcanapijr@gmail.com">
+          <div class="contact__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="contact__label">Email</div>
+            <div class="contact__value">christophergcanapijr@gmail.com</div>
+          </div>
+        </a>
+        <a class="contact__card" href="https://github.com/christophergcanapijr-png" target="_blank" rel="noopener">
+          <div class="contact__icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2 1-.3 2-.4 3-.4s2 .1 3 .4c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg>
+          </div>
+          <div>
+            <div class="contact__label">GitHub</div>
+            <div class="contact__value">github.com/christophergcanapijr-png</div>
+          </div>
+        </a>
+        <a class="contact__card" href="https://www.linkedin.com/in/christopher-canapi-jr-bb31ab415/" target="_blank" rel="noopener">
+          <div class="contact__icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17C2.7 2 2 2.7 2 3.5v17c0 .8.7 1.5 1.5 1.5h17c.8 0 1.5-.7 1.5-1.5v-17c0-.8-.7-1.5-1.5-1.5zM8 19H5V9h3v10zM6.5 7.5c-1 0-1.8-.8-1.8-1.8s.8-1.7 1.8-1.7 1.8.8 1.8 1.8-.8 1.7-1.8 1.7zM19 19h-3v-5c0-1.2 0-2.7-1.6-2.7s-1.9 1.3-1.9 2.6V19h-3V9h2.9v1.4h.1c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.6 2 3.6 4.7V19z"/></svg>
+          </div>
+          <div>
+            <div class="contact__label">LinkedIn</div>
+            <div class="contact__value">Connect with me</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <p>&copy; <span id="year"></span> Christopher G. Canapi Jr. — Built with HTML, CSS &amp; JavaScript.</p>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Scroll to top" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Project screenshot" hidden>
+  <button class="lightbox__close" id="lightboxClose" aria-label="Close preview">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+  </button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Previous image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Next image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+  <figure class="lightbox__figure">
+    <img class="lightbox__img" id="lightboxImg" alt="">
+    <figcaption class="lightbox__caption" id="lightboxCaption"></figcaption>
+  </figure>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
