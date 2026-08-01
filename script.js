@@ -141,7 +141,7 @@
       aiInput.value = '';
 
       if (!aiEndpoint) {
-        appendMessage('The assistant is being connected. Please try again soon or contact Christopher directly.', 'bot');
+        appendMessage('My portfolio AI is being connected. Please try again soon or contact me directly.', 'bot');
         return;
       }
 
@@ -164,7 +164,7 @@
         const payload = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error(payload.error || 'The assistant is unavailable right now.');
         typing.remove();
-        appendMessage(payload.answer || 'I could not answer that from Christopher\'s portfolio.', 'bot');
+        appendMessage(payload.answer || 'I could not answer that from my portfolio.', 'bot');
       } catch (error) {
         typing.remove();
         appendMessage(error.message || 'The assistant is unavailable right now.', 'bot');
