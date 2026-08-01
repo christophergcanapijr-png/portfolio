@@ -62,6 +62,7 @@
     const target = parseInt(el.dataset.target, 10);
     const suffix = el.dataset.suffix || '';
     if (!target) return;
+    el.textContent = '0';
     const duration = 1400;
     const start = performance.now();
     const step = (now) => {
