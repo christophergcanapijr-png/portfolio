@@ -97,12 +97,33 @@
   const aiChat = document.querySelector('[data-ai-chat]');
   if (aiChat) {
     const aiEndpoint = document.querySelector('meta[name="portfolio-ai-endpoint"]')?.content?.trim();
+    const aiToggle = document.querySelector('[data-ai-toggle]');
+    const aiClose = aiChat.querySelector('[data-ai-close]');
     const aiForm = aiChat.querySelector('[data-ai-form]');
     const aiInput = aiChat.querySelector('[data-ai-input]');
     const aiMessages = aiChat.querySelector('[data-ai-messages]');
     const aiNote = aiChat.querySelector('[data-ai-note]');
     const aiSend = aiForm.querySelector('button[type="submit"]');
     let aiBusy = false;
+
+    const setAssistantOpen = (open) => {
+      aiChat.hidden = !open;
+      aiToggle.setAttribute('aria-expanded', String(open));
+      aiToggle.setAttribute('aria-label', open ? 'Close AI chat' : 'Open AI chat');
+      if (open) window.setTimeout(() => aiInput.focus(), 0);
+    };
+
+    aiToggle.addEventListener('click', () => setAssistantOpen(aiChat.hidden));
+    aiClose.addEventListener('click', () => {
+      setAssistantOpen(false);
+      aiToggle.focus();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !aiChat.hidden) {
+        setAssistantOpen(false);
+        aiToggle.focus();
+      }
+    });
 
     const appendMessage = (text, role) => {
       const message = document.createElement('div');
@@ -151,7 +172,7 @@
         aiBusy = false;
         aiInput.disabled = false;
         aiSend.disabled = false;
-        aiInput.focus();
+        if (!aiChat.hidden) aiInput.focus();
       }
     };
 

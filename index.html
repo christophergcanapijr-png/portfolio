@@ -31,7 +31,6 @@
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
-      <a href="#assistant">Ask AI</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -343,53 +342,10 @@
   </div>
 </section>
 
-<section class="section assistant" id="assistant">
-  <div class="container">
-    <div class="section__head reveal">
-      <span class="section__num">05</span>
-      <h2 class="section__title">Ask About Me</h2>
-      <div class="section__line"></div>
-    </div>
-    <div class="assistant__grid">
-      <div class="assistant__intro reveal">
-        <div class="assistant__status"><span></span>Gemini portfolio assistant</div>
-        <h3>Recruiter questions, answered from my portfolio.</h3>
-        <p>
-          Ask about my automation work, technical skills, internship, or projects.
-          The assistant is restricted to approved facts about me and will decline
-          unrelated questions.
-        </p>
-        <div class="assistant__suggestions" aria-label="Suggested questions">
-          <button type="button" data-ai-question="What automation has Christopher built?">What automation have you built?</button>
-          <button type="button" data-ai-question="What technologies does Christopher use?">What technologies do you use?</button>
-          <button type="button" data-ai-question="Why would Christopher be a good automation hire?">Why should we hire you?</button>
-        </div>
-      </div>
-      <div class="assistant-chat reveal" data-ai-chat>
-        <div class="assistant-chat__head">
-          <div><span class="assistant-chat__avatar">AI</span><div><strong>Christopher's Assistant</strong><small>Portfolio facts only</small></div></div>
-          <span class="assistant-chat__online">Online</span>
-        </div>
-        <div class="assistant-chat__messages" data-ai-messages aria-live="polite" aria-label="Conversation">
-          <div class="assistant-message assistant-message--bot">
-            Hi! Ask me about Christopher's experience, skills, or automation projects.
-          </div>
-        </div>
-        <form class="assistant-chat__form" data-ai-form>
-          <label class="sr-only" for="assistantQuestion">Ask a question about Christopher</label>
-          <input id="assistantQuestion" data-ai-input type="text" maxlength="400" autocomplete="off" placeholder="Ask about Christopher..." required>
-          <button type="submit" aria-label="Send question">Send</button>
-        </form>
-        <p class="assistant-chat__note" data-ai-note>AI answers can make mistakes. Verify important details directly with Christopher.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="section contact" id="contact">
   <div class="container">
     <div class="section__head reveal">
-      <span class="section__num">06</span>
+      <span class="section__num">05</span>
       <h2 class="section__title">Get In Touch</h2>
       <div class="section__line"></div>
     </div>
@@ -436,6 +392,41 @@
     <p>&copy; <span id="year"></span> Christopher G. Canapi Jr. — Built with HTML, CSS &amp; JavaScript.</p>
   </div>
 </footer>
+
+<div class="assistant-widget" data-ai-widget>
+  <div class="assistant-chat" id="assistantChat" data-ai-chat role="dialog" aria-label="Ask about Christopher" hidden>
+    <div class="assistant-chat__head">
+      <div>
+        <span class="assistant-chat__avatar">AI</span>
+        <div><strong>Ask about Christopher</strong><small>Portfolio facts only</small></div>
+      </div>
+      <div class="assistant-chat__actions">
+        <span class="assistant-chat__online">Online</span>
+        <button class="assistant-chat__close" type="button" data-ai-close aria-label="Close AI chat">&times;</button>
+      </div>
+    </div>
+    <div class="assistant-chat__suggestions" aria-label="Suggested questions">
+      <button type="button" data-ai-question="What automation has Christopher built?">Automation</button>
+      <button type="button" data-ai-question="What technologies does Christopher use?">Technologies</button>
+      <button type="button" data-ai-question="Why would Christopher be a good automation hire?">Why hire him?</button>
+    </div>
+    <div class="assistant-chat__messages" data-ai-messages aria-live="polite" aria-label="Conversation">
+      <div class="assistant-message assistant-message--bot">
+        Hi! Ask me about Christopher's experience, skills, internship, or automation projects.
+      </div>
+    </div>
+    <form class="assistant-chat__form" data-ai-form>
+      <label class="sr-only" for="assistantQuestion">Ask a question about Christopher</label>
+      <input id="assistantQuestion" data-ai-input type="text" maxlength="400" autocomplete="off" placeholder="Ask about Christopher..." required>
+      <button type="submit" aria-label="Send question">Send</button>
+    </form>
+    <p class="assistant-chat__note" data-ai-note>AI can make mistakes. Verify important details with Christopher.</p>
+  </div>
+  <button class="assistant-launcher" type="button" data-ai-toggle aria-controls="assistantChat" aria-expanded="false" aria-label="Open AI chat">
+    <span class="assistant-launcher__badge">AI</span>
+    <span>Ask about me</span>
+  </button>
+</div>
 
 <button class="to-top" id="toTop" aria-label="Scroll to top" type="button">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
