@@ -93,6 +93,80 @@
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  // Portfolio-only AI assistant
+  const aiChat = document.querySelector('[data-ai-chat]');
+  if (aiChat) {
+    const aiEndpoint = document.querySelector('meta[name="portfolio-ai-endpoint"]')?.content?.trim();
+    const aiForm = aiChat.querySelector('[data-ai-form]');
+    const aiInput = aiChat.querySelector('[data-ai-input]');
+    const aiMessages = aiChat.querySelector('[data-ai-messages]');
+    const aiNote = aiChat.querySelector('[data-ai-note]');
+    const aiSend = aiForm.querySelector('button[type="submit"]');
+    let aiBusy = false;
+
+    const appendMessage = (text, role) => {
+      const message = document.createElement('div');
+      message.className = `assistant-message assistant-message--${role}`;
+      message.textContent = text;
+      aiMessages.append(message);
+      aiMessages.scrollTop = aiMessages.scrollHeight;
+      return message;
+    };
+
+    const askAssistant = async (question) => {
+      const cleaned = question.trim().slice(0, 400);
+      if (!cleaned || aiBusy) return;
+      appendMessage(cleaned, 'user');
+      aiInput.value = '';
+
+      if (!aiEndpoint) {
+        appendMessage('The assistant is being connected. Please try again soon or contact Christopher directly.', 'bot');
+        return;
+      }
+
+      aiBusy = true;
+      aiInput.disabled = true;
+      aiSend.disabled = true;
+      const typing = document.createElement('div');
+      typing.className = 'assistant-message assistant-message--bot assistant-message--typing';
+      typing.setAttribute('aria-label', 'Assistant is typing');
+      typing.innerHTML = '<span></span><span></span><span></span>';
+      aiMessages.append(typing);
+      aiMessages.scrollTop = aiMessages.scrollHeight;
+
+      try {
+        const response = await fetch(aiEndpoint, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({message: cleaned}),
+        });
+        const payload = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(payload.error || 'The assistant is unavailable right now.');
+        typing.remove();
+        appendMessage(payload.answer || 'I could not answer that from Christopher\'s portfolio.', 'bot');
+      } catch (error) {
+        typing.remove();
+        appendMessage(error.message || 'The assistant is unavailable right now.', 'bot');
+      } finally {
+        aiBusy = false;
+        aiInput.disabled = false;
+        aiSend.disabled = false;
+        aiInput.focus();
+      }
+    };
+
+    aiForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      askAssistant(aiInput.value);
+    });
+
+    document.querySelectorAll('[data-ai-question]').forEach((button) => {
+      button.addEventListener('click', () => askAssistant(button.dataset.aiQuestion || ''));
+    });
+
+    if (!aiEndpoint) aiNote.textContent = 'The secure AI connection is not published yet.';
+  }
+
   // Lightbox for project screenshots
   const lb = document.getElementById('lightbox');
   const lbImg = document.getElementById('lightboxImg');
