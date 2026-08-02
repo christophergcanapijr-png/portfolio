@@ -379,7 +379,7 @@
         vy: (Math.random() - 0.5) * 0.35,
         r: Math.random() * 1.8 + 0.6,
         a: Math.random() * 0.5 + 0.2,
-        hue: Math.random() < 0.5 ? '99,102,241' : '139,92,246',
+        hue: Math.random() < 0.72 ? '201,163,111' : '230,226,218',
       }));
     };
 
@@ -393,7 +393,7 @@
           const dx = p.x - q.x, dy = p.y - q.y;
           const d = Math.hypot(dx, dy);
           if (d < 120) {
-            ctx.strokeStyle = `rgba(139,92,246,${0.12 * (1 - d / 120)})`;
+            ctx.strokeStyle = `rgba(201,163,111,${0.08 * (1 - d / 120)})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
