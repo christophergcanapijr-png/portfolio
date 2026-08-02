@@ -2,11 +2,14 @@
   const nav = document.getElementById('nav');
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Sticky nav background + scroll-to-top button
   const toTop = document.getElementById('toTop');
   const onScroll = () => {
     const y = window.scrollY;
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    document.documentElement.style.setProperty('--scroll-progress', scrollable > 0 ? Math.min(y / scrollable, 1) : 0);
     if (y > 30) nav.classList.add('scrolled');
     else nav.classList.remove('scrolled');
     if (toTop) {
@@ -39,8 +42,71 @@
     });
   });
 
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && navLinks.classList.contains('open')) {
+      navLinks.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.focus();
+    }
+  });
+
+  // Keep the navigation synced with the section currently in view.
+  const sectionLinks = new Map(
+    Array.from(navLinks.querySelectorAll('a[href^="#"]')).map((link) => [link.getAttribute('href').slice(1), link])
+  );
+  const pageSections = Array.from(sectionLinks.keys()).map((id) => document.getElementById(id)).filter(Boolean);
+  if ('IntersectionObserver' in window && pageSections.length) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      sectionLinks.forEach((link, id) => {
+        const active = id === visible.target.id;
+        link.classList.toggle('is-active', active);
+        if (active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    }, { rootMargin: '-25% 0px -58% 0px', threshold: [0, .1, .35] });
+    pageSections.forEach((section) => sectionObserver.observe(section));
+  }
+
+  // Pointer light and subtle 3D depth for fine-pointer devices.
+  const supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (supportsHover && !reduceMotion) {
+    let pointerFrame = 0;
+    window.addEventListener('pointermove', (event) => {
+      if (pointerFrame) cancelAnimationFrame(pointerFrame);
+      pointerFrame = requestAnimationFrame(() => {
+        document.documentElement.style.setProperty('--pointer-x', `${event.clientX}px`);
+        document.documentElement.style.setProperty('--pointer-y', `${event.clientY}px`);
+      });
+    }, { passive: true });
+
+    document.querySelectorAll('[data-tilt]').forEach((card) => {
+      card.addEventListener('pointermove', (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width;
+        const y = (event.clientY - rect.top) / rect.height;
+        const strength = Number(card.dataset.tiltStrength || 4);
+        card.style.setProperty('--rx', `${(.5 - y) * strength}deg`);
+        card.style.setProperty('--ry', `${(x - .5) * strength}deg`);
+        card.style.setProperty('--card-x', `${x * 100}%`);
+        card.style.setProperty('--card-y', `${y * 100}%`);
+      });
+      card.addEventListener('pointerleave', () => {
+        card.style.setProperty('--rx', '0deg');
+        card.style.setProperty('--ry', '0deg');
+        card.style.setProperty('--card-x', '50%');
+        card.style.setProperty('--card-y', '50%');
+      });
+    });
+  }
+
   // Reveal-on-scroll
   const revealEls = document.querySelectorAll('.reveal');
+  document.querySelectorAll('.about__stats,.skills__grid,.projects__grid,.contact__links').forEach((group) => {
+    Array.from(group.children).forEach((item, index) => item.style.setProperty('--reveal-delay', `${Math.min(index * 70, 210)}ms`));
+  });
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
@@ -275,7 +341,7 @@
   // Typing animation on hero subtitle
   const typed = document.getElementById('typed');
   const caret = document.querySelector('.caret');
-  if (typed && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (typed && !reduceMotion) {
     const text = typed.dataset.text || '';
     let i = 0;
     const tick = () => {
@@ -295,7 +361,7 @@
 
   // Particle background in hero
   const canvas = document.getElementById('particles');
-  if (canvas && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (canvas && !reduceMotion) {
     const ctx = canvas.getContext('2d');
     let w = 0, h = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
     let particles = [];
