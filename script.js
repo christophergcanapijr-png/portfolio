@@ -171,6 +171,47 @@
     const aiNote = aiChat.querySelector('[data-ai-note]');
     const aiSend = aiForm.querySelector('button[type="submit"]');
     let aiBusy = false;
+    const fallbackIntro = 'The live AI service is offline, so I’m answering from the approved portfolio facts on this page.';
+
+    const hasAny = (text, terms) => terms.some(term => text.includes(term));
+
+    const getFallbackAnswer = (question) => {
+      const text = question.toLowerCase();
+
+      if (hasAny(text, ['contact', 'email', 'github', 'linkedin', 'reach', 'message'])) {
+        return `${fallbackIntro}\n\nYou can contact Christopher at christophergcanapijr@gmail.com, view GitHub at github.com/christophergcanapijr-png, or connect through the LinkedIn link in the contact section.`;
+      }
+
+      if (hasAny(text, ['hire', 'available', 'availability', 'remote', 'relocate', 'freelance', 'full-time'])) {
+        return `${fallbackIntro}\n\nChristopher is available immediately for full-time or freelance full-stack, web, automation, or backend work. He prefers remote opportunities and is willing to relocate.`;
+      }
+
+      if (hasAny(text, ['automation', 'shein', 'temu', 'vinted', 'product listing', 'playwright', 'gemini'])) {
+        return `${fallbackIntro}\n\nHis featured automation is a SHEIN and Temu product-listing tool built with Python, FastAPI, Playwright, Gemini API, SQLite, and a browser extension. It processes product-code batches, captures images, verifies Size S measurements, applies Vinted pricing rules, and generates editable English and French descriptions.`;
+      }
+
+      if (hasAny(text, ['full-stack', 'full stack', 'projects', 'built', 'portfolio', 'applications', 'apps'])) {
+        return `${fallbackIntro}\n\nChristopher has 4+ substantial builds: a SHEIN and Temu product-listing automation, the CIT Online Voting System, the Cagayan Museum official WordPress website, and a Sales & Inventory Tracker currently used by two clients.`;
+      }
+
+      if (hasAny(text, ['intern', 'internship', 'museum', 'cagayan', 'government', 'wordpress', 'experience'])) {
+        return `${fallbackIntro}\n\nFrom February 2026 to May 2026, Christopher completed a 486-hour Web Developer Internship with Cagayan Museum, a government cultural institution. He helped build the official WordPress site with custom presentation, exhibit pages, visitor information, and a staff-friendly content workflow.`;
+      }
+
+      if (hasAny(text, ['skill', 'stack', 'technology', 'technologies', 'backend', 'frontend', 'api', 'database'])) {
+        return `${fallbackIntro}\n\nHis skills include automation, browser automation, batch processing, data extraction, Python, FastAPI, REST/JSON APIs, SQLite, MySQL, Gemini API, prompt design, schema validation, JavaScript, HTML/CSS, PHP, Git, and WordPress.`;
+      }
+
+      if (hasAny(text, ['voting', 'cit', 'capstone', 'election'])) {
+        return `${fallbackIntro}\n\nThe CIT Online Voting System was Christopher’s capstone project, where he served as Lead Programmer. It supports student elections with role-based access, candidate management, real-time tallying, and a results dashboard using PHP, MySQL, and JavaScript.`;
+      }
+
+      if (hasAny(text, ['sales', 'inventory', 'tracker', 'client', 'clients'])) {
+        return `${fallbackIntro}\n\nThe Sales & Inventory Tracker is a freelance web app currently used by two clients. It tracks daily sales, manages stock levels, and generates inventory reports, replacing paper-based workflows with a phone- and laptop-friendly system.`;
+      }
+
+      return `${fallbackIntro}\n\nI can answer from the portfolio about Christopher’s full-stack projects, automation work, skills, internship, availability, and contact details. Try asking about the SHEIN/Temu automation, CIT voting system, sales tracker, or Cagayan Museum internship.`;
+    };
 
     const setAssistantOpen = (open) => {
       aiChat.hidden = !open;
@@ -207,7 +248,8 @@
       aiInput.value = '';
 
       if (!aiEndpoint) {
-        appendMessage('My portfolio AI is being connected. Please try again soon or contact me directly.', 'bot');
+        appendMessage(getFallbackAnswer(cleaned), 'bot');
+        if (aiNote) aiNote.textContent = 'Live AI is not configured, so answers use approved portfolio facts from this page.';
         return;
       }
 
@@ -232,8 +274,10 @@
         typing.remove();
         appendMessage(payload.answer || 'I could not answer that from my portfolio.', 'bot');
       } catch (error) {
+        console.warn('Portfolio AI endpoint failed; using local fallback.', error);
         typing.remove();
-        appendMessage(error.message || 'The assistant is unavailable right now.', 'bot');
+        appendMessage(getFallbackAnswer(cleaned), 'bot');
+        if (aiNote) aiNote.textContent = 'Live AI is temporarily offline, so answers use approved portfolio facts from this page.';
       } finally {
         aiBusy = false;
         aiInput.disabled = false;
