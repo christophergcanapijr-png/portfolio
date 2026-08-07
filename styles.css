@@ -400,6 +400,10 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   display:flex;align-items:center;gap:8px;margin-top:18px;color:var(--text-muted);
   font:400 .76rem/1.5 'JetBrains Mono',monospace;
 }
+.btn--demo{
+  margin:16px 0 24px;
+  display:inline-flex;
+}
 .project__note span{width:7px;height:7px;border-radius:50%;background:#28c840;box-shadow:0 0 10px rgba(40,200,64,.7)}
 .project__cover{
   position:relative;aspect-ratio:16/10;
