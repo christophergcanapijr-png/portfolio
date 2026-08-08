@@ -17,7 +17,6 @@
     }
   };
   window.addEventListener('scroll', onScroll, { passive: true });
-  requestAnimationFrame(onScroll);
 
   if (toTop) {
     toTop.addEventListener('click', () => {
