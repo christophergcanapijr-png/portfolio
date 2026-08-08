@@ -3,6 +3,7 @@
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const mobileViewport = window.matchMedia('(max-width: 720px)').matches;
 
   // Sticky nav background + scroll-to-top button
   const toTop = document.getElementById('toTop');
@@ -18,7 +19,7 @@
     }
   };
   window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  requestAnimationFrame(onScroll);
 
   if (toTop) {
     toTop.addEventListener('click', () => {
@@ -385,7 +386,7 @@
   // Typing animation on hero subtitle
   const typed = document.getElementById('typed');
   const caret = document.querySelector('.caret');
-  if (typed && !reduceMotion) {
+  if (typed && !reduceMotion && !mobileViewport) {
     const text = typed.dataset.text || '';
     let i = 0;
     const tick = () => {
@@ -405,7 +406,7 @@
 
   // Particle background in hero
   const canvas = document.getElementById('particles');
-  if (canvas && !reduceMotion) {
+  if (canvas && !reduceMotion && !mobileViewport) {
     const ctx = canvas.getContext('2d');
     let w = 0, h = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
     let particles = [];
