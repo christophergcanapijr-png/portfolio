@@ -9,8 +9,6 @@
   const toTop = document.getElementById('toTop');
   const onScroll = () => {
     const y = window.scrollY;
-    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    document.documentElement.style.setProperty('--scroll-progress', scrollable > 0 ? Math.min(y / scrollable, 1) : 0);
     if (y > 30) nav.classList.add('scrolled');
     else nav.classList.remove('scrolled');
     if (toTop) {
