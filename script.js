@@ -184,6 +184,10 @@
         return `${fallbackIntro}\n\nChristopher is available immediately for full-time or freelance full-stack, web, automation, or backend work. He prefers remote opportunities and is willing to relocate.`;
       }
 
+      if (hasAny(text, ['ghl', 'gohighlevel', 'highlevel', 'prime realty', 'real estate', 'funnel', 'crm'])) {
+        return `${fallbackIntro}\n\nHis GHL Sample Project is Prime Realty, an end-to-end GoHighLevel real estate funnel and CRM system featuring a responsive property showcase website, interactive property inquiry and viewing-booking widgets, automated email confirmations, smart buyer/seller tagging, a 5-stage sales pipeline, and 7+ published workflow automations.`;
+      }
+
       if (hasAny(text, ['automation', 'shein', 'temu', 'vinted', 'product listing', 'playwright', 'gemini'])) {
         return `${fallbackIntro}\n\nHis featured automation is a SHEIN and Temu product-listing tool built with Python, FastAPI, Playwright, Gemini API, SQLite, and a browser extension. It processes product-code batches, captures images, verifies Size S measurements, applies Vinted pricing rules, and generates editable English and French descriptions.`;
       }
