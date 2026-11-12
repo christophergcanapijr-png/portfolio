@@ -1156,5 +1156,6 @@ body{
 .to-top{background:#b78d55;box-shadow:0 8px 22px -12px rgba(0,0,0,.85)}
 .to-top:hover{box-shadow:0 12px 26px -14px rgba(0,0,0,.9)}
 
+@media (min-width: 721px) { .skills__grid > .skill-group:first-child:nth-last-child(odd) { grid-column: 1 / -1; min-height: auto; } }
 @media (min-width: 800px) { .projects__grid--2x2 { grid-template-columns: repeat(2, 1fr) !important; } }
 

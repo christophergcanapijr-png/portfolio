@@ -201,7 +201,7 @@
       }
 
       if (hasAny(text, ['skill', 'stack', 'technology', 'technologies', 'backend', 'frontend', 'api', 'database'])) {
-        return `${fallbackIntro}\n\nHis skills include automation, browser automation, batch processing, data extraction, Python, FastAPI, REST/JSON APIs, SQLite, MySQL, Gemini API, prompt design, schema validation, JavaScript, HTML/CSS, PHP, Git, and WordPress.`;
+        return `${fallbackIntro}\n\nHis skills include GoHighLevel (GHL), funnels & landing pages, CRM & sales pipelines, workflow automations, calendar booking systems, lead capture & tagging, Selenium & Playwright, web scraping, batch processing, Python (FastAPI), React & TypeScript, SQLite, MySQL, Gemini API, prompt engineering, schema validation, JavaScript, HTML/CSS, PHP, and WordPress.`;
       }
 
       if (hasAny(text, ['voting', 'cit', 'capstone', 'election'])) {
