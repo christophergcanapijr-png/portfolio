@@ -185,7 +185,7 @@
       }
 
       if (hasAny(text, ['ghl', 'gohighlevel', 'highlevel', 'prime realty', 'real estate', 'funnel', 'crm'])) {
-        return `${fallbackIntro}\n\nHis GHL Sample Project is Prime Realty, an end-to-end GoHighLevel real estate funnel and CRM system featuring a responsive property showcase website, interactive property inquiry and viewing-booking widgets, automated email confirmations, smart buyer/seller tagging, a 5-stage sales pipeline, and 7+ published workflow automations.`;
+        return `${fallbackIntro}\n\nHis GHL Sample Project is Prime Realty, a self-initiated sample build modeled around a fictional real estate brokerage to showcase his end-to-end GoHighLevel setup—including a responsive property showcase funnel, interactive inquiry and viewing-booking widgets, automated email confirmations, smart buyer/seller tagging, a 5-stage sales pipeline, and 7+ workflow automations.`;
       }
 
       if (hasAny(text, ['automation', 'shein', 'temu', 'vinted', 'product listing', 'playwright', 'gemini'])) {
