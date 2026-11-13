@@ -189,7 +189,7 @@
       }
 
       if (hasAny(text, ['automation', 'shein', 'temu', 'vinted', 'product listing', 'playwright', 'gemini'])) {
-        return `${fallbackIntro}\n\nHis featured automation is a SHEIN and Temu product-listing tool built with Python, FastAPI, Playwright, Gemini API, SQLite, and a browser extension. It processes product-code batches, captures images, verifies Size S measurements, applies Vinted pricing rules, and generates editable English and French descriptions.`;
+        return `${fallbackIntro}\n\nHis production work automation is a SHEIN and Temu product-listing tool built with Python, FastAPI, Playwright, Gemini API, SQLite, and a browser extension—actively used by both him and his employer (a Vinted.fr seller) to process product batches, verify Size S measurements, apply Vinted.fr pricing rules, and generate bilingual EN/FR descriptions.`;
       }
 
       if (hasAny(text, ['full-stack', 'full stack', 'projects', 'built', 'portfolio', 'applications', 'apps'])) {
