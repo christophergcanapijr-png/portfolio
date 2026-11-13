@@ -219,8 +219,19 @@
       <h2 class="section__title">GHL Sample Projects</h2>
       <div class="section__line"></div>
     </div>
-    <div class="projects__grid">
-      <article class="project project--featured reveal" data-tilt>
+    <div data-project-tabs>
+      <div class="project-tabs" role="tablist" aria-label="GHL Sample Projects">
+        <button class="project-tab is-active" type="button" role="tab" aria-selected="true" data-target="ghl-1">
+          <span class="project-tab__num">01</span>
+          <span>AuraGlow MedSpa (AI + Review Gate)</span>
+        </button>
+        <button class="project-tab" type="button" role="tab" aria-selected="false" data-target="ghl-2">
+          <span class="project-tab__num">02</span>
+          <span>Prime Realty (Funnel &amp; CRM)</span>
+        </button>
+      </div>
+      <div class="projects__grid">
+      <article class="project project--featured project-panel is-active reveal" data-panel="ghl-1" data-tilt>
         <div class="project__cover project__cover--gallery" data-gallery aria-label="AuraGlow MedSpa GoHighLevel AI &amp; Automation screens">
           <img class="gallery__img is-active" src="assets/auraglow-1-home.png" alt="AuraGlow MedSpa — Luxury Dark &amp; Gold VIP Voucher Landing Page" loading="lazy" decoding="async">
           <img class="gallery__img" src="assets/auraglow-2-treatments.png" alt="AuraGlow MedSpa — Signature Treatments &amp; Austin Patient Reviews" loading="lazy" decoding="async">
@@ -275,7 +286,7 @@
           </div>
         </div>
       </article>
-      <article class="project project--featured reveal" data-tilt>
+      <article class="project project--featured project-panel reveal" data-panel="ghl-2" data-tilt>
         <div class="project__cover project__cover--gallery" data-gallery aria-label="Prime Realty GoHighLevel CRM &amp; Funnel screens">
           <img class="gallery__img is-active" src="assets/ghl-1-website.png" alt="Prime Realty — Real Estate Hero &amp; Landing Page" loading="lazy" decoding="async">
           <img class="gallery__img" src="assets/ghl-2-listings.png" alt="Prime Realty — Featured Property Listings Showcase" loading="lazy" decoding="async">
@@ -329,6 +340,7 @@
         </div>
       </article>
     </div>
+    </div>
   </div>
 </section>
 
@@ -339,8 +351,19 @@
       <h2 class="section__title">Personal Projects</h2>
       <div class="section__line"></div>
     </div>
-    <div class="projects__grid projects__grid--2x2">
-      <article class="project reveal" data-tilt>
+    <div data-project-tabs>
+      <div class="project-tabs" role="tablist" aria-label="Personal Projects">
+        <button class="project-tab is-active" type="button" role="tab" aria-selected="true" data-target="pers-1">
+          <span class="project-tab__num">01</span>
+          <span>SHEIN &amp; Temu Automation</span>
+        </button>
+        <button class="project-tab" type="button" role="tab" aria-selected="false" data-target="pers-2">
+          <span class="project-tab__num">02</span>
+          <span>AI Job Aggregator</span>
+        </button>
+      </div>
+      <div class="projects__grid">
+      <article class="project project--featured project-panel is-active reveal" data-panel="pers-1" data-tilt>
         <div class="project__cover project__cover--gallery" data-gallery aria-label="SHEIN and Temu product listing automation screens">
           <img class="gallery__img is-active" src="assets/automation-workspace.webp" alt="SHEIN &amp; Temu Automation — Batch Workspace Screen" width="1200" height="835" loading="lazy" decoding="async">
           <img class="gallery__img" src="assets/automation-batches.webp" alt="SHEIN &amp; Temu Automation — Product Codes &amp; Batch Controls" width="1200" height="288" loading="lazy" decoding="async">
@@ -375,7 +398,7 @@
         </div>
       </article>
 
-      <article class="project reveal" data-tilt>
+      <article class="project project--featured project-panel reveal" data-panel="pers-2" data-tilt>
         <div class="project__cover project__cover--gallery" data-gallery aria-label="AI Job Aggregator screens">
           <img class="gallery__img is-active" src="assets/jobagg-1.png" alt="AI Job Aggregator — Dashboard &amp; Analytics Screen" loading="lazy" decoding="async">
           <img class="gallery__img" src="assets/jobagg-2.png" alt="AI Job Aggregator — Application Pipeline Screen" loading="lazy" decoding="async">
@@ -418,10 +441,25 @@
       <div class="section__line"></div>
     </div>
     
-    <div class="projects__grid projects__grid--2x2">
+    <div data-project-tabs>
+      <div class="project-tabs" role="tablist" aria-label="Experience and Work Projects">
+        <button class="project-tab is-active" type="button" role="tab" aria-selected="true" data-target="exp-1">
+          <span class="project-tab__num">01</span>
+          <span>CIT Online Voting System</span>
+        </button>
+        <button class="project-tab" type="button" role="tab" aria-selected="false" data-target="exp-2">
+          <span class="project-tab__num">02</span>
+          <span>Cagayan Museum Website</span>
+        </button>
+        <button class="project-tab" type="button" role="tab" aria-selected="false" data-target="exp-3">
+          <span class="project-tab__num">03</span>
+          <span>Sales &amp; Inventory Tracker</span>
+        </button>
+      </div>
+      <div class="projects__grid">
     
       <!-- 1: CIT Online Voting System -->
-      <article class="project reveal" data-tilt>
+      <article class="project project--featured project-panel is-active reveal" data-panel="exp-1" data-tilt>
         <div class="project__cover project__cover--gallery" data-gallery aria-label="CIT Online Voting System screens">
           <img class="gallery__img is-active" src="assets/cit-dashboard.webp" alt="CIT Voting System — Live Election Results &amp; Admin Dashboard" width="1200" height="579" loading="lazy" decoding="async">
           <img class="gallery__img" src="assets/cit-students.webp" alt="CIT Voting System — Student Voter Registration &amp; Verification" width="1200" height="574" loading="lazy" decoding="async">
@@ -453,7 +491,7 @@
 
 
       <!-- 3: Cagayan Museum Official Website -->
-      <article class="project reveal" data-tilt>
+      <article class="project project--featured project-panel reveal" data-panel="exp-2" data-tilt>
         <div class="project__cover project__cover--gallery" data-gallery aria-label="Cagayan Museum official website screens">
           <img class="gallery__img is-active" src="assets/address-wordpress%20(1).jpg" alt="Cagayan Museum — Official Website Location &amp; Exhibits Page" loading="lazy" decoding="async">
           <img class="gallery__img" src="assets/foot%20wordpress.jpg" alt="Cagayan Museum — Visitor Information &amp; Institutional Footer" loading="lazy" decoding="async">
@@ -476,7 +514,7 @@
       </article>
 
       <!-- 4: Sales & Inventory Tracker -->
-      <article class="project reveal" data-tilt>
+      <article class="project project--featured project-panel reveal" data-panel="exp-3" data-tilt>
         <div class="project__cover project__cover--gallery" data-gallery aria-label="Sales and Inventory Tracker screens">
           <img class="gallery__img is-active" src="assets/sales-dashboard.webp" alt="Sales &amp; Inventory Tracker — Daily Revenue &amp; Stock Dashboard" width="1200" height="578" loading="lazy" decoding="async">
           <img class="gallery__img" src="assets/sales-products.webp" alt="Sales &amp; Inventory Tracker — SKU &amp; Product Stock Management" width="1200" height="583" loading="lazy" decoding="async">
@@ -499,6 +537,7 @@
         </div>
       </article>
 
+    </div>
     </div>
   </div>
 </section>

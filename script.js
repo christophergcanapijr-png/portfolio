@@ -367,6 +367,27 @@
     else if (e.key === 'ArrowRight') step(1);
   });
 
+  // Numbered project tab switcher
+  document.querySelectorAll('[data-project-tabs]').forEach((wrap) => {
+    const tabs = wrap.querySelectorAll('.project-tab');
+    const panels = wrap.querySelectorAll('.project-panel');
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const target = tab.getAttribute('data-target');
+        tabs.forEach((t) => {
+          const active = t === tab;
+          t.classList.toggle('is-active', active);
+          t.setAttribute('aria-selected', String(active));
+        });
+        panels.forEach((p) => {
+          const match = p.getAttribute('data-panel') === target;
+          p.classList.toggle('is-active', match);
+          if (match) p.classList.add('is-visible');
+        });
+      });
+    });
+  });
+
   // Image carousel(s) for project covers
   document.querySelectorAll('[data-gallery]').forEach((gal) => {
     const imgs = gal.querySelectorAll('.gallery__img');

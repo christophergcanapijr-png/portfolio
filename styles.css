@@ -1160,3 +1160,63 @@ body{
 @media (min-width: 721px) { .skills__grid > .skill-group:first-child:nth-last-child(odd) { grid-column: 1 / -1; min-height: auto; } }
 @media (min-width: 800px) { .projects__grid--2x2 { grid-template-columns: repeat(2, 1fr) !important; } }
 
+/* ===== Numbered Project Tabs (Compact Switcher) ===== */
+.project-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.project-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  font: 500 .86rem/1.2 'Inter', sans-serif;
+  cursor: pointer;
+  transition: border-color .2s, background .2s, color .2s, transform .2s;
+}
+.project-tab:hover {
+  border-color: rgba(201,163,111,.45);
+  color: var(--text);
+  transform: translateY(-1px);
+}
+.project-tab.is-active {
+  background: rgba(201,163,111,.12);
+  border-color: #c9a36f;
+  color: var(--text);
+  box-shadow: 0 8px 24px -14px rgba(201,163,111,.6);
+}
+.project-tab__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 7px;
+  border-radius: 6px;
+  background: rgba(201,163,111,.12);
+  color: #c9a36f;
+  font: 700 .72rem/1 'JetBrains Mono', monospace;
+}
+.project-tab.is-active .project-tab__num {
+  background: #c9a36f;
+  color: #17130e;
+}
+.project-panel {
+  display: none !important;
+}
+.project-panel.is-active {
+  display: grid !important;
+  animation: tabFadeIn .25s ease;
+}
+@keyframes tabFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 720px) {
+  .project-tab { padding: 8px 12px; font-size: .8rem; }
+}
+
