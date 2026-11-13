@@ -184,8 +184,8 @@
         return `${fallbackIntro}\n\nChristopher is available immediately for full-time or freelance full-stack, web, automation, or backend work. He prefers remote opportunities and is willing to relocate.`;
       }
 
-      if (hasAny(text, ['ghl', 'gohighlevel', 'highlevel', 'prime realty', 'real estate', 'funnel', 'crm'])) {
-        return `${fallbackIntro}\n\nHis GHL Sample Project is Prime Realty, a self-initiated sample build modeled around a fictional real estate brokerage to showcase his end-to-end GoHighLevel setup—including a responsive property showcase funnel, interactive inquiry and viewing-booking widgets, automated email confirmations, smart buyer/seller tagging, a 5-stage sales pipeline, and 7+ workflow automations.`;
+      if (hasAny(text, ['ghl', 'gohighlevel', 'highlevel', 'prime realty', 'auraglow', 'medspa', 'real estate', 'funnel', 'crm'])) {
+        return `${fallbackIntro}\n\nHe has two GoHighLevel (GHL) sample builds: (1) AuraGlow MedSpa — featuring a custom 2-page dark-and-gold funnel, a Live Chat Conversation AI concierge (Chloe) that books appointments directly on the calendar, database reactivation (DBR), missed-call follow-up, 24h/2h reminders, and a 1–5 star review gate across 6 published workflows; and (2) Prime Realty — a real estate funnel with interactive inquiry/viewing widgets, automated email confirmations, a 5-stage pipeline, and 7+ workflows.`;
       }
 
       if (hasAny(text, ['automation', 'shein', 'temu', 'vinted', 'product listing', 'playwright', 'gemini'])) {
