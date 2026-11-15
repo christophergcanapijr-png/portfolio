@@ -188,12 +188,16 @@
         return `${fallbackIntro}\n\nHe has two GoHighLevel (GHL) sample builds: (1) AuraGlow MedSpa — featuring a custom 2-page dark-and-gold funnel, a Live Chat Conversation AI concierge (Chloe) that books appointments directly on the calendar, database reactivation (DBR), missed-call follow-up, 24h/2h reminders, and a 1–5 star review gate across 6 published workflows; and (2) Prime Realty — a real estate funnel with interactive inquiry/viewing widgets, automated email confirmations, a 5-stage pipeline, and 7+ workflows.`;
       }
 
+      if (hasAny(text, ['video', 'faceless', 'youtube', 'ffmpeg', 'tts', 'caption', 'speech', 'reels', 'shorts', 'media'])) {
+        return `${fallbackIntro}\n\nChristopher built an autonomous Faceless AI Video Pipeline that turns topic prompts or custom scripts into upload-ready 16:9 YouTube videos and 9:16 Shorts/Reels. It generates neural voiceovers and word-level subtitles via Edge-TTS, matches scene-accurate archival visuals using Wikimedia Commons and Openverse APIs, applies documentary color grading and cartoon cel-shading filters via OpenCV/Pillow, and renders smooth Ken Burns motion with burned-in subtitles via FFmpeg.`;
+      }
+
       if (hasAny(text, ['automation', 'shein', 'temu', 'vinted', 'product listing', 'playwright', 'gemini'])) {
         return `${fallbackIntro}\n\nHis production work automation is a SHEIN and Temu product-listing tool built with Python, FastAPI, Playwright, Gemini API, SQLite, and a browser extension—actively used by both him and his employer (a Vinted.fr seller) to process product batches, verify Size S measurements, apply Vinted.fr pricing rules, and generate bilingual EN/FR descriptions.`;
       }
 
       if (hasAny(text, ['full-stack', 'full stack', 'projects', 'built', 'portfolio', 'applications', 'apps'])) {
-        return `${fallbackIntro}\n\nChristopher has 4+ substantial builds: a SHEIN and Temu product-listing automation, the CIT Online Voting System, the Cagayan Museum official WordPress website, and a Sales & Inventory Tracker currently used by two clients.`;
+        return `${fallbackIntro}\n\nChristopher has 6+ substantial builds: an autonomous Faceless AI Video Pipeline, two GoHighLevel systems (AuraGlow MedSpa & Prime Realty), an AI Job Aggregator, a SHEIN/Temu product-listing automation, the CIT Online Voting System, and a Sales & Inventory Tracker.`;
       }
 
       if (hasAny(text, ['intern', 'internship', 'museum', 'cagayan', 'government', 'wordpress', 'experience'])) {

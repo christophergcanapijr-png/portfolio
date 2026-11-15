@@ -148,7 +148,7 @@
       </div>
       <div class="about__stats">
         <div class="stat reveal" data-tilt>
-          <div class="stat__num" data-target="4" data-suffix="+">4+</div>
+          <div class="stat__num" data-target="6" data-suffix="+">6+</div>
           <div class="stat__label">Completed Builds</div>
         </div>
         <div class="stat reveal" data-tilt>
@@ -353,13 +353,59 @@
     </div>
     <div data-project-tabs>
       <div class="project-tabs" role="tablist" aria-label="Personal Projects">
-        <button class="project-tab is-active" type="button" role="tab" aria-selected="true" data-target="pers-2">
+        <button class="project-tab is-active" type="button" role="tab" aria-selected="true" data-target="pers-1">
           <span class="project-tab__num">01</span>
+          <span>Faceless AI Video Pipeline</span>
+        </button>
+        <button class="project-tab" type="button" role="tab" aria-selected="false" data-target="pers-2">
+          <span class="project-tab__num">02</span>
           <span>AI Job Aggregator</span>
         </button>
       </div>
       <div class="projects__grid">
-      <article class="project project--featured project-panel is-active reveal" data-panel="pers-2" data-tilt>
+      <article class="project project--featured project-panel is-active reveal" data-panel="pers-1" data-tilt>
+        <div class="project__cover project__cover--gallery" data-gallery aria-label="Faceless AI Video Pipeline screens">
+          <img class="gallery__img is-active" src="assets/faceless-video-1.png" alt="Faceless AI Video Pipeline — Studio UI, Script Editor, Voice Selection &amp; Progress Bar" loading="lazy" decoding="async">
+          <img class="gallery__img" src="assets/faceless-video-2.png" alt="Faceless AI Video Pipeline — Rendered 720p/1080p Video Player with Burned-In Captions" loading="lazy" decoding="async">
+          <div class="gallery__dots" role="tablist" aria-label="Faceless AI Video Pipeline gallery screens">
+            <button class="gallery__dot is-active" type="button" aria-label="Show Studio UI"></button>
+            <button class="gallery__dot" type="button" aria-label="Show Rendered Video"></button>
+          </div>
+          <span class="project__badge">AI &amp; Video Automation</span>
+        </div>
+        <div class="project__body">
+          <p class="project__eyebrow">Autonomous Media Engine &middot; Neural TTS, Scene Matching &amp; FFmpeg Render</p>
+          <h3>Faceless AI Video Pipeline</h3>
+          <p>
+            An autonomous end-to-end video production pipeline that converts a single topic prompt or custom script into upload-ready 16:9 YouTube videos or 9:16 Shorts/Reels. Features neural speech synthesis and word-level timestamp generation via Edge-TTS, intelligent scene visual retrieval using Wikimedia Commons &amp; Openverse APIs, documentary color grading and cartoon cel-shading filters via OpenCV and Pillow, and automated Ken Burns camera motion with burned-in subtitles rendered in FFmpeg.
+          </p>
+          <div class="project__proof" aria-label="Video pipeline highlights">
+            <div>
+              <strong>30s</strong>
+              <span>Full Render Time</span>
+            </div>
+            <div>
+              <strong>$0</strong>
+              <span>Zero API Cost</span>
+            </div>
+            <div>
+              <strong>1080p</strong>
+              <span>Multi-Format Ready</span>
+            </div>
+          </div>
+          <ul class="project__tags">
+            <li>Python</li><li>FastAPI</li><li>FFmpeg</li><li>Edge-TTS</li><li>OpenCV</li><li>Pillow</li><li>AsyncIO</li><li>Wikimedia Commons API</li><li>Openverse API</li>
+          </ul>
+          <div class="project__actions">
+            <a class="project__btn project__btn--primary" href="assets/faceless-video-demo.mp4" target="_blank" rel="noopener" aria-label="Watch Faceless AI Video demo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <span>Watch Video Demo</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project project--featured project-panel reveal" data-panel="pers-2" data-tilt>
         <div class="project__cover project__cover--gallery" data-gallery aria-label="AI Job Aggregator screens">
           <img class="gallery__img is-active" src="assets/jobagg-1.png" alt="AI Job Aggregator — Dashboard &amp; Analytics Screen" loading="lazy" decoding="async">
           <img class="gallery__img" src="assets/jobagg-2.png" alt="AI Job Aggregator — Application Pipeline Screen" loading="lazy" decoding="async">
@@ -374,10 +420,25 @@
           <span class="project__badge">Personal Project</span>
         </div>
         <div class="project__body">
+          <p class="project__eyebrow">Full-Stack Intelligence &middot; Resume Parsing, Match Scoring &amp; Multi-Board Scraping</p>
           <h3>AI Job Aggregator</h3>
           <p>
             Full-stack job intelligence platform that scrapes job boards with Selenium, normalizes listings into SQLAlchemy, and uses the Gemini API to score and match your parsed resume against job requirements. Includes a React &amp; TypeScript dashboard to track application pipelines, match scores, and scraper integrations powered by a FastAPI backend.
           </p>
+          <div class="project__proof" aria-label="Job Aggregator highlights">
+            <div>
+              <strong>FastAPI</strong>
+              <span>Async Backend</span>
+            </div>
+            <div>
+              <strong>Gemini API</strong>
+              <span>Match Scoring</span>
+            </div>
+            <div>
+              <strong>100%</strong>
+              <span>Automated Tracking</span>
+            </div>
+          </div>
           <ul class="project__tags">
             <li>React</li><li>TypeScript</li><li>FastAPI</li><li>Python</li><li>Gemini API</li><li>Selenium</li><li>SQLAlchemy</li>
           </ul>
