@@ -371,6 +371,37 @@
     else if (e.key === 'ArrowRight') step(1);
   });
 
+  // Category filter buttons on projects.html
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('[data-category]');
+  if (filterBtns.length && projectCards.length) {
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const cat = btn.getAttribute('data-filter');
+        filterBtns.forEach((b) => b.classList.toggle('is-active', b === btn));
+        projectCards.forEach((card) => {
+          const cardCat = card.getAttribute('data-category');
+          const show = cat === 'all' || cardCat.includes(cat);
+          card.style.display = show ? '' : 'none';
+        });
+      });
+    });
+  }
+
+  // Quick inquiry mailto form
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('contactName')?.value || '';
+      const email = document.getElementById('contactEmail')?.value || '';
+      const subject = document.getElementById('contactSubject')?.value || 'Engineering & Automation Inquiry';
+      const msg = document.getElementById('contactMessage')?.value || '';
+      const body = encodeURIComponent(`Hi Christopher,\n\nName: ${name}\nEmail: ${email}\n\nProject Scope:\n${msg}`);
+      window.location.href = `mailto:christophergcanapijr@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    });
+  }
+
   // Numbered project tab switcher
   document.querySelectorAll('[data-project-tabs]').forEach((wrap) => {
     const tabs = wrap.querySelectorAll('.project-tab');
