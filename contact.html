@@ -161,6 +161,43 @@
   </div>
 </footer>
 
+<!-- Floating AI Copilot Widget -->
+<div class="assistant-widget" data-ai-widget>
+  <div class="assistant-chat" id="assistantChat" data-ai-chat role="dialog" aria-label="Ask me about my work" hidden>
+    <div class="assistant-chat__head">
+      <div>
+        <span class="assistant-chat__avatar">AI</span>
+        <div><strong>Ask me about my work</strong><small>Answers in Christopher's voice</small></div>
+      </div>
+      <div class="assistant-chat__actions">
+        <span class="assistant-chat__online">Online</span>
+        <button class="assistant-chat__close" type="button" data-ai-close aria-label="Close AI chat">&times;</button>
+      </div>
+    </div>
+    <div class="assistant-chat__suggestions" aria-label="Suggested questions">
+      <button type="button" data-ai-question="Tell me about yourself">About Christopher</button>
+      <button type="button" data-ai-question="What GoHighLevel builds have you completed?">GHL builds</button>
+      <button type="button" data-ai-question="How does your AI Video Pipeline work?">Video Pipeline</button>
+      <button type="button" data-ai-question="Why should someone hire you?">Why hire me?</button>
+    </div>
+    <div class="assistant-chat__messages" data-ai-messages aria-live="polite" aria-label="Conversation">
+      <div class="assistant-message assistant-message--bot">
+        Hi! I'm Christopher's AI copilot. Ask me anything about his background, GoHighLevel systems, AI video pipeline, automation tools, or availability!
+      </div>
+    </div>
+    <form class="assistant-chat__form" data-ai-form>
+      <label class="sr-only" for="assistantQuestion">Ask me a question about my work</label>
+      <input id="assistantQuestion" data-ai-input type="text" maxlength="400" autocomplete="off" placeholder="Ask about GHL, pipelines, or skills..." required>
+      <button type="submit" aria-label="Send question">Send</button>
+    </form>
+    <p class="assistant-chat__note" data-ai-note>This AI uses Christopher's approved portfolio facts.</p>
+  </div>
+  <button class="assistant-launcher" type="button" data-ai-toggle aria-controls="assistantChat" aria-expanded="false" aria-label="Open AI chat">
+    <span class="assistant-launcher__badge">AI</span>
+    <span>Ask Copilot ✦</span>
+  </button>
+</div>
+
 <button class="to-top" id="toTop" aria-label="Scroll to top" type="button">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
 </button>

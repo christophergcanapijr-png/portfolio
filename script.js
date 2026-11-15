@@ -174,53 +174,84 @@
     const hasAny = (text, terms) => terms.some(term => text.includes(term));
 
     const getFallbackAnswer = (question) => {
-      const text = question.toLowerCase();
+      const text = question.toLowerCase().trim();
 
-      if (hasAny(text, ['contact', 'email', 'github', 'linkedin', 'reach', 'message'])) {
-        return `${fallbackIntro}\n\nYou can contact Christopher at christophergcanapijr@gmail.com, view GitHub at github.com/christophergcanapijr-png, or connect through the LinkedIn link in the contact section.`;
+      // Greetings
+      if (/^(hi|hello|hey|greetings|good morning|good afternoon|good evening|yo)\b/i.test(text)) {
+        return "Hello! I'm Christopher's AI Copilot. How can I assist you today? You can ask me to tell you about Christopher, his GoHighLevel builds, his autonomous AI video pipeline, his work automation tools, or how to get in touch with him!";
       }
 
-      if (hasAny(text, ['hire', 'available', 'availability', 'remote', 'relocate', 'freelance', 'full-time'])) {
-        return `${fallbackIntro}\n\nChristopher is available immediately for full-time or freelance full-stack, web, automation, or backend work. He prefers remote opportunities and is willing to relocate.`;
+      // Tell me about yourself / Bio / Who are you
+      if (hasAny(text, ['yourself', 'about you', 'who are you', 'who is', 'introduce', 'bio', 'summary', 'background', 'profile'])) {
+        return "I'm Christopher G. Canapi Jr., a Full-Stack Developer, GoHighLevel (GHL) Systems Architect, and Automation Specialist based in Tuguegarao City, Philippines.\n\nKey highlights:\n• Graduated in 2026 with a BS in Information Technology from the University of Cagayan Valley, serving as Lead Programmer for the CIT voting system capstone.\n• Completed a 486-hour government web developer internship with the Cagayan Museum.\n• Built an autonomous Faceless AI Video Generation Pipeline that renders 1080p videos with neural TTS at $0 API cost.\n• Built production e-commerce listing tools actively used by a Vinted.fr seller.\n• Deployed enterprise GoHighLevel systems with Conversation AI appointment setters and review gates.\n\nHe is available immediately for full-time remote roles or contract projects!";
       }
 
-      if (hasAny(text, ['ghl', 'gohighlevel', 'highlevel', 'prime realty', 'auraglow', 'medspa', 'real estate', 'funnel', 'crm'])) {
-        return `${fallbackIntro}\n\nHe has two GoHighLevel (GHL) sample builds: (1) AuraGlow MedSpa — featuring a custom 2-page dark-and-gold funnel, a Live Chat Conversation AI concierge (Chloe) that books appointments directly on the calendar, database reactivation (DBR), missed-call follow-up, 24h/2h reminders, and a 1–5 star review gate across 6 published workflows; and (2) Prime Realty — a real estate funnel with interactive inquiry/viewing widgets, automated email confirmations, a 5-stage pipeline, and 7+ workflows.`;
+      // What do you do / What can you build / Services
+      if (hasAny(text, ['what do you do', 'what can you do', 'services', 'what can you build', 'what do you build', 'what are your skills'])) {
+        return "Christopher specializes in 3 core engineering domains:\n1. GoHighLevel (GHL) Systems: Custom funnels, Conversation AI appointment concierges, multi-stage sales pipelines, and smart 1–5★ review gates.\n2. Intelligent Automation: Headless browser scrapers (Playwright/Selenium), automated data extraction, and AI-driven workflows.\n3. Full-Stack Web Development: High-performance async APIs with Python (FastAPI), robust databases (PostgreSQL/SQLAlchemy), and modern interfaces with React & TypeScript.";
       }
 
-      if (hasAny(text, ['video', 'faceless', 'youtube', 'ffmpeg', 'tts', 'caption', 'speech', 'reels', 'shorts', 'media'])) {
-        return `${fallbackIntro}\n\nChristopher built an autonomous Faceless AI Video Pipeline that turns topic prompts or custom scripts into upload-ready 16:9 YouTube videos and 9:16 Shorts/Reels. It generates neural voiceovers and word-level subtitles via Edge-TTS, matches scene-accurate archival visuals using Wikimedia Commons and Openverse APIs, applies documentary color grading and cartoon cel-shading filters via OpenCV/Pillow, and renders smooth Ken Burns motion with burned-in subtitles via FFmpeg.`;
+      // Resume / CV
+      if (hasAny(text, ['resume', 'cv', 'curriculum vitae'])) {
+        return "You can request Christopher's official 1-page US-format resume directly via email at christophergcanapijr@gmail.com with the subject 'Resume Request', or reach out on LinkedIn (linkedin.com/in/christopher-canapi-jr-bb31ab415/).";
       }
 
-      if (hasAny(text, ['automation', 'shein', 'temu', 'vinted', 'product listing', 'playwright', 'gemini'])) {
-        return `${fallbackIntro}\n\nHis production work automation is a SHEIN and Temu product-listing tool built with Python, FastAPI, Playwright, Gemini API, SQLite, and a browser extension—actively used by both him and his employer (a Vinted.fr seller) to process product batches, verify Size S measurements, apply Vinted.fr pricing rules, and generate bilingual EN/FR descriptions.`;
+      // Contact & Hire
+      if (hasAny(text, ['contact', 'email', 'github', 'linkedin', 'reach', 'message', 'phone', 'call', 'talk'])) {
+        return "You can reach Christopher directly at:\n• Email: christophergcanapijr@gmail.com\n• LinkedIn: linkedin.com/in/christopher-canapi-jr-bb31ab415/\n• GitHub: github.com/christophergcanapijr-png\n\nHe is based in the Philippines (GMT+8) with full flexibility to overlap with US, Australian, and European working hours.";
       }
 
+      // Availability / Hiring / Rate / Salary
+      if (hasAny(text, ['hire', 'available', 'availability', 'remote', 'relocate', 'freelance', 'full-time', 'rate', 'pricing', 'salary', 'cost'])) {
+        return "Christopher is available immediately for full-time remote software engineering positions, contract roles, or freelance GoHighLevel and automation projects. He prefers remote work and is also open to relocation. Email him at christophergcanapijr@gmail.com to discuss requirements.";
+      }
+
+      // GoHighLevel (GHL)
+      if (hasAny(text, ['ghl', 'gohighlevel', 'highlevel', 'prime realty', 'auraglow', 'medspa', 'real estate', 'funnel', 'crm', 'appointment', 'review gate', 'dbr'])) {
+        return "Christopher has built two enterprise-grade GoHighLevel (GHL) systems:\n1. AuraGlow MedSpa: Custom 2-page dark/gold funnel, Live Chat Conversation AI concierge (Chloe) that qualifies leads and books appointments onto Google Calendar, missed-call text-back, database reactivation (DBR), and a 1–5 star review gate protecting Google Review reputation across 6 workflows.\n2. Prime Realty: Real estate brokerage platform with dynamic inquiry and viewing booking widgets, automated branded confirmation emails, a 5-stage sales pipeline, and 7+ workflows.";
+      }
+
+      // Faceless AI Video Pipeline / Media
+      if (hasAny(text, ['video', 'faceless', 'youtube', 'ffmpeg', 'tts', 'caption', 'speech', 'reels', 'shorts', 'media', 'alcatraz', 'pyramids', 'pompeii', 'titanic'])) {
+        return "Christopher engineered an autonomous Faceless AI Video Generation Pipeline using Python, FastAPI, Edge-TTS, and FFmpeg.\n\nIt takes any topic or custom script, generates neural voiceovers with word-level synced captions, retrieves matching archival photography via Wikimedia Commons and Openverse APIs, applies documentary color grading or cartoon cel-shading with OpenCV, and renders upload-ready 1080p MP4 videos with Ken Burns camera motion at $0 API cost.";
+      }
+
+      // Work Automation (SHEIN / Temu / Vinted)
+      if (hasAny(text, ['automation', 'shein', 'temu', 'vinted', 'product listing', 'playwright', 'selenium', 'scraping', 'scraper'])) {
+        return "His flagship production automation is a SHEIN and Temu product-listing platform built with Python, FastAPI, Playwright, Gemini API, and SQLite. Actively used by an e-commerce seller on Vinted.fr and Christopher, it extracts garment measurements, applies platform pricing rules, and generates bilingual English/French descriptions, reducing listing time from 3 minutes per item down to 15 seconds.";
+      }
+
+      // Full-Stack & Projects List
       if (hasAny(text, ['full-stack', 'full stack', 'projects', 'built', 'portfolio', 'applications', 'apps'])) {
-        return `${fallbackIntro}\n\nChristopher has 6+ substantial builds: an autonomous Faceless AI Video Pipeline, two GoHighLevel systems (AuraGlow MedSpa & Prime Realty), an AI Job Aggregator, a SHEIN/Temu product-listing automation, the CIT Online Voting System, and a Sales & Inventory Tracker.`;
+        return "Christopher has 8 substantial production and client builds:\n1. AuraGlow MedSpa (GHL AI & Review Gate)\n2. Prime Realty (GHL Real Estate Funnel & CRM)\n3. Faceless AI Video Generation Pipeline (Python & FFmpeg)\n4. SHEIN & Temu Listing Automation (Vinted.fr)\n5. AI Job Aggregator (FastAPI, Selenium & React/TS)\n6. CIT Online Voting System (Lead Programmer Capstone)\n7. Cagayan Museum Official Website (486-hour Internship)\n8. Sales & Inventory Tracker (Used by 2 client businesses)";
       }
 
-      if (hasAny(text, ['intern', 'internship', 'museum', 'cagayan', 'government', 'wordpress', 'experience'])) {
-        return `${fallbackIntro}\n\nFrom February 2026 to May 2026, Christopher completed a 486-hour Web Developer Internship with Cagayan Museum, a government cultural institution. He helped build the official WordPress site with custom presentation, exhibit pages, visitor information, and a staff-friendly content workflow.`;
+      // Education & University
+      if (hasAny(text, ['education', 'college', 'degree', 'university', 'school', 'graduate', 'ucv'])) {
+        return "Christopher graduated in 2026 with a Bachelor of Science in Information Technology (BSIT) from the University of Cagayan Valley, where he served as Lead Programmer on the college's capstone voting system.";
       }
 
-      if (hasAny(text, ['skill', 'stack', 'technology', 'technologies', 'backend', 'frontend', 'api', 'database'])) {
-        return `${fallbackIntro}\n\nHis skills include GoHighLevel (GHL), funnels & landing pages, CRM & sales pipelines, workflow automations, calendar booking systems, lead capture & tagging, Selenium & Playwright, web scraping, batch processing, Python (FastAPI), React & TypeScript, SQLite, MySQL, Gemini API, prompt engineering, schema validation, JavaScript, HTML/CSS, PHP, and WordPress.`;
+      // Internship & Museum
+      if (hasAny(text, ['intern', 'internship', 'museum', 'cagayan', 'government', 'wordpress'])) {
+        return "From February 2026 to May 2026, Christopher completed a 486-hour Web Developer Internship with the Cagayan Museum, a provincial cultural institution. He built the museum's official WordPress digital portal with custom exhibition galleries and visitor schedules, and received official government certification upon deployment.";
       }
 
-      if (hasAny(text, ['voting', 'cit', 'capstone', 'election'])) {
-        return `${fallbackIntro}\n\nThe CIT Online Voting System was Christopher’s capstone project, where he served as Lead Programmer. It supports student elections with role-based access, candidate management, real-time tallying, and a results dashboard using PHP, MySQL, and JavaScript.`;
+      // Tech Stack & Skills
+      if (hasAny(text, ['skill', 'stack', 'technology', 'technologies', 'backend', 'frontend', 'api', 'database', 'python', 'fastapi', 'react', 'typescript'])) {
+        return "Christopher's core tech stack includes:\n• CRM & Growth: GoHighLevel (GHL), Conversation AI, Review Gates, Workflow Automation\n• Backend & Automation: Python, FastAPI, Playwright, Selenium, Node.js, PHP\n• Databases: PostgreSQL, SQLite, MySQL, SQLAlchemy\n• Frontend: React, TypeScript, JavaScript (ES6+), HTML5/CSS3, Tailwind CSS\n• AI & Media: Gemini API, Edge-TTS, FFmpeg, OpenCV, Pillow";
       }
 
-      if (hasAny(text, ['sales', 'inventory', 'tracker', 'client', 'clients'])) {
-        return `${fallbackIntro}\n\nThe Sales & Inventory Tracker is a freelance web app currently used by two clients. It tracks daily sales, manages stock levels, and generates inventory reports, replacing paper-based workflows with a phone- and laptop-friendly system.`;
+      // Why Hire Me
+      if (hasAny(text, ['why hire', 'why should', 'why you', 'strength', 'candidate'])) {
+        return "Why hire Christopher:\n1. Practical Problem Solver: He builds systems that eliminate actual business friction (like saving an e-commerce seller 10+ hours a week).\n2. Dual Skillset: Strong in both deep technical engineering (Python, Playwright, APIs) and revenue-driving marketing tech (GoHighLevel, AI booking bots).\n3. Proven Delivery: 6+ production builds, 486-hour government web dev internship, Lead Programmer graduate.\n4. Available immediately for full-time or contract roles!";
       }
 
-      return `${fallbackIntro}\n\nI can answer from the portfolio about Christopher’s full-stack projects, automation work, skills, internship, availability, and contact details. Try asking about the SHEIN/Temu automation, CIT voting system, sales tracker, or Cagayan Museum internship.`;
+      return "I can answer questions about Christopher's work, including:\n• His GoHighLevel builds (AuraGlow MedSpa, Prime Realty)\n• The autonomous Faceless AI Video Pipeline\n• His production e-commerce automation for Vinted.fr\n• Full-stack applications (AI Job Aggregator, CIT Voting System)\n• His 486-hour government internship or education\n• His availability and contact info\n\nWhat would you like to know?";
     };
 
     const setAssistantOpen = (open) => {
       aiChat.hidden = !open;
+      aiChat.style.display = open ? 'flex' : 'none';
       aiToggles.forEach(toggle => {
         toggle.setAttribute('aria-expanded', String(open));
         toggle.setAttribute('aria-label', open ? 'Close AI chat' : 'Open AI chat');
@@ -229,16 +260,20 @@
     };
 
     aiToggles.forEach(toggle => {
-      toggle.addEventListener('click', () => setAssistantOpen(aiChat.hidden));
+      toggle.addEventListener('click', () => {
+        const isHidden = aiChat.hidden || aiChat.style.display === 'none';
+        setAssistantOpen(isHidden);
+      });
     });
-    aiClose.addEventListener('click', () => {
+    aiClose.addEventListener('click', (e) => {
+      e.stopPropagation();
       setAssistantOpen(false);
-      // Only focus the main toggle if possible, or just don't worry about it
+      aiToggles[0]?.focus();
     });
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && !aiChat.hidden) {
+      if (event.key === 'Escape' && (!aiChat.hidden && aiChat.style.display !== 'none')) {
         setAssistantOpen(false);
-        aiToggle.focus();
+        aiToggles[0]?.focus();
       }
     });
 

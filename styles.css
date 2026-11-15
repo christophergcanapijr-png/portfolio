@@ -1244,6 +1244,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   overflow: hidden;
   animation: chatSlideUp 0.3s var(--ease-spring);
 }
+.assistant-chat[hidden] {
+  display: none !important;
+}
+.assistant-chat:not([hidden]) {
+  display: flex !important;
+}
 @keyframes chatSlideUp {
   from { opacity: 0; transform: translateY(16px) scale(0.96); }
   to { opacity: 1; transform: translateY(0) scale(1); }
@@ -1307,18 +1313,22 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   box-shadow: 0 0 6px var(--emerald);
 }
 .assistant-chat__close {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: var(--text-dim);
+  cursor: pointer;
+  pointer-events: auto;
+  border: 1px solid transparent;
   transition: all 0.2s ease;
 }
 .assistant-chat__close:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
   color: #fff;
 }
 
